@@ -10,9 +10,9 @@ int main()
 
     for (size_t i = 0; i < n; i++)
     {
-        swap(a[start], a[end]);
-        start++;
-        end--;
+        int temp = a[start];
+        a[start] = a[end];
+        a[end] = temp;
     }
     for (size_t i = 0; i < n; i++)
     {
