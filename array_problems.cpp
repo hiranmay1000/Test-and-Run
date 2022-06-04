@@ -3,6 +3,21 @@ using namespace std;
 
 void arraySeperate(int arr[], int size)
 {
+    // At first sorting whole array
+    for (size_t i = 0; i < size; i++)
+    {
+        for (size_t j = 0; j < size; j++)
+        {
+            if (arr[i] < arr[j])
+            {
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+    }
+
+    // Seperating elements
     int evenArr[50];
     int oddArr[50];
 
@@ -69,8 +84,30 @@ void sortArrInAscending(int arr[], int size)
 }
 
 // sort array in descending order
+// user = 3
 void sortArrInDescending(int arr[], int size)
 {
+    cout << endl;
+    for (size_t i = 0; i < size; i++)
+    {
+        for (size_t j = 0; j < size; j++)
+        {
+            if (arr[i] > arr[j])
+            {
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+            cout << arr[i] << " ";
+        }
+        cout << endl;
+    }
+    cout << endl;
+
+    for (size_t i = 0; i < size; i++)
+    {
+        cout << arr[i] << " ";
+    }
 }
 
 // reverse an array
@@ -95,44 +132,94 @@ void reverseArray(int arr[], int size)
     }
 }
 
+// swap elements in the array alternatively
+// user = 5
+// ..................................
+// void altEleInArr(int arr[], int size)
+// {
+//     int start = 0;
+//     int end = sizeof(arr) / sizeof(arr[0]) - 1;
+
+//     for (size_t i = 0; i < size; i++)
+//     {
+//         int temp = arr[start];
+//         arr[start] = arr[start];
+//         arr[start] = temp;
+//     }
+
+//     for (size_t i = 0; i < size; i++)
+//     {
+//         cout << arr[i] << " ";
+//     }
+// }
+
 // to insert New value in the array (sorted list
 // user 6
 void insertEleInArr(int arr[], int size)
 {
-    for (size_t i = 0; i < size; i++)
+    int n;
+    cout << "Insert position: ";
+    cin >> n;
+
+    int num;
+    cout << "Element you want to insert: ";
+    cin >> num;
+
+    for (size_t i = size; i >= n; i--)
     {
-        if (arr[i] != i)
-        {
-            arr[i] = i;
-        }
+        arr[i] = arr[i - 1];
+        arr[i] = num;
+        size++;
     }
 
     for (size_t i = 0; i < size; i++)
     {
-        cout << arr[i] << " ";
+        cout << arr[i] << "  ";
     }
 }
 
-// Main function
+// Find duplicate in an array
+void findDuplicate(int arr[], int size)
+{
+    int ans = 0;
+
+    for (size_t i = 0; i < size; i++)
+    {
+        ans = ans ^ arr[i];
+    }
+
+    for (size_t i = 0; i < size; i++)
+    {
+        ans = ans ^ i;
+    }
+
+    cout << ans;
+}
+//
+//
+//
+//
+//
+//
+// .........MAIN FUCTION...........................
 int main(int argc, char const *argv[])
 {
     // taking input for initialization
     int user;
-    cout << "Enter 1 to print separate odd and even integers in separate arrays >>" << endl
-         << "Enter 2 to sort elements in ascending order: " << endl
-         << "Enter 3 to sort elements in descending order: " << endl
-         << endl
-         << "Enter 4 to reverse an array: " << endl
-         << "Press 6 to insert value in an array: ";
+    cout << "Press 1 to print separate odd and even integers in separate arrays >>" << endl
+         << "Press 2 to sort elements in ascending order: " << endl
+         << "Press 3 to sort elements in descending order: " << endl
+         << "Press 4 to reverse an array: " << endl
+         << "Press 5 to swap elements alternatively: " << endl
+         << "Press 6 to insert value in an array: " << endl
+         << "Press 7 to find duplicate: ";
     cin >> user;
 
     // declaring array size and taking input in array
     int arr[100];
     int size = sizeof(arr) / sizeof(arr[0]);
-    // cout << "Enter array size: ";
-    // cin >> size;
-    int n;
-    cin >> n;
+    cout << "Enter array size: ";
+    cin >> size;
 
     // taking input for array in a row using loop
     cout << "Elements: \n";
@@ -140,7 +227,6 @@ int main(int argc, char const *argv[])
     {
         cout << "  [" << i + 1 << "]: ";
         cin >> arr[i];
-        n--;
     }
 
     // code execution
@@ -166,14 +252,24 @@ int main(int argc, char const *argv[])
         reverseArray(arr, size);
         break;
 
+    case 5:
+        // altEleInArr(arr, size);
+        break;
+
     // to insert New value in the array (sorted list)
     case 6:
         insertEleInArr(arr, size);
         break;
 
+    case 7:
+        findDuplicate(arr, size);
+        break;
+
     default:
         cout << endl
              << "Enter a valid input >>";
+        break;
+        return 0;
     }
 
     return 0;
