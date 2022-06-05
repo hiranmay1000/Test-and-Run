@@ -1,31 +1,14 @@
 #include <iostream>
 #include <bits/stdc++.h>
+#include <vector>
 
 using namespace std;
 
-int main(int argc, char const *argv[])
+int main()
 {
-    int arr1[100] = {1, 4, 1, 5};
-    int arr2[100] = {3, 1, 5};
-    int size = 4;
-    int size2 = 3;
-
-    vector<int> ans;
-
-    for (size_t i = 0; i < size; i++)
-    {
-        for (size_t j = 0; j < size2; j++)
-        {
-            if (arr1[i] == arr2[j])
-            {
-                arr2[j] = INT_MIN;
-                cout << arr1[i] << " ";
-            }
-            
-        }
-        
-    }
-    
+    vector<int> findArrayIntersection(vector<int> & arr1, int n, vector<int> &arr2, int m);
+    arr1.push_back(3);
+    arr1.push_back(2);
 
     return 0;
 }
