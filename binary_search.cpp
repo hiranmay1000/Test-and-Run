@@ -30,9 +30,8 @@ int binarySearch(int arr[], int size, int key)
 int main()
 {
     int arr[5] = {2, 4, 6, 8, 12};
-    int element = 6;
 
-    int ans = binarySearch(arr, 5, element);
+    int ans = binarySearch(arr, 5, 6);
     cout << "Index -> " << ans;
 
     return 0;

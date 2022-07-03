@@ -38,4 +38,3 @@ int main()
     cout << "Another one -> " << (*i).second << " "; // finding specific position
 
     return 0;
-}
