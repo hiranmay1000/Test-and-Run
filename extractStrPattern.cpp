@@ -7,34 +7,23 @@ using namespace std;
 
 int main()
 {
-    string str;
-    string w;
-    // cin >> str;
-    getline(cin, str);
-    cin >> w;
-
-    char isNum[99];
+    string s = "he110 w0r1d";
+    char w = '-';
     int count = 0;
-
-    size_t i = 0;
-    for (; i < str.size(); i++)
-    {
-        if (isdigit(str[i])) // cheking if numeric is present or not using inbuilt function isdigit()
-        {
-            count++;
-        }
-    }
+    // getline(cin, str);
+    // cin >> w;
 
     for (size_t i = 0; i < count; i++)
     {
         cout << w;
     }
 
-    for (int i = 0; i < count; i++)
-    {
-        if (isdigit(str[i]))
+    for (int i = 0; i < s.size(); i++)
+    { 
+        if (isdigit(s.at(i)))
         {
-            cout << str[i];
+            cout << s.at(i);
+            count++;
         }
     }
 
