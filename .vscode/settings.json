@@ -6,7 +6,10 @@
         "deque": "cpp",
         "string": "cpp",
         "vector": "cpp",
-        "array": "cpp"
+        "array": "cpp",
+        "string_view": "cpp",
+        "regex": "cpp",
+        "valarray": "cpp"
     },
     "terminal.integrated.allowChords": false
 }

@@ -3,29 +3,17 @@ using namespace std;
 
 int main()
 {
-    stack<string> st;
-    string s;
-    getline(cin, s);
-    string w = "";
-    for (int i = 0; i < s.length(); i++)
-    {
-        if (s[i] != '.')
-        {
-            w += s[i];
-        }
+    stack<char> st;
+    string s="hi";
+    for(int i=0;i<s.length();i++){
+        char ch = s[i];
+        st.push(s[i]);
     }
-    st.push(w);
-
-    int size = st.size();
-    for (int i = 0; i < size; i++)
+    
+    while (!st.empty())
     {
-        // if (i)
-        //     cout << ".";
-        cout << st.top();
-        st.pop();
+        cout << st.top() << " ";
     }
-
-    // cout << st.size();
-
+    
     return 0;
 }
