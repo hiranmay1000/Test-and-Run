@@ -11,7 +11,7 @@ int main()
     cin >> n;
     cin.ignore();
 
-//1st method
+    //1st method
     for (int i = 0; i < 10; i++)
     {
         if (i) // simple conditional statement
@@ -21,7 +21,7 @@ int main()
         cout << (i + 1) * n;
     }
 
-//2nd method
+    //2nd method
     for (int i = 1; i < 11; i++)
     {
         if (i != 1) // applying conditional statement
@@ -31,5 +31,5 @@ int main()
         cout << i * n;
     }
 
-    
+
 }

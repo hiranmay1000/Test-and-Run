@@ -1,30 +1,19 @@
-#include <iostream>
-#include <array>
-#include <vector>
-#include <algorithm>
+#include <bits/stdc++.h>
+
 using namespace std;
 
 int main()
 {
-    array<int, 5> arr = {2, 1, 4, 3, 5};
-    int size = arr.size();
+    vector<int> arr = { 1,2,3,4,5 }; // 3 2 1 5 4 
+    int n = arr.size();
+    int k = 3;
 
-    cout << "Array before alternate sorting ->";
-    for (int i = 0; i < size; i++)
+    for(int i=0; i<k; i++)
     {
-        cout << arr[i] << " ";
+        
     }
 
-    for (int i = 0; i < size; i = i + 2)
-    {
-        swap(arr[i], arr[i + 1]);
-    }
-
-    cout << endl << "Array after alternate sorting ->";
-    for (int i = 0; i < size; i++)
-    {
-        cout << arr[i] << " ";
-    }
+    cout << endl;
 
     return 0;
 }
