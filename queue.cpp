@@ -1,28 +1,74 @@
-#include <iostream>
-#include <queue>
+#include <bits/stdc++.h>
+#define size 5
+
 using namespace std;
 
-int main()
-{
-    queue<string> q;
+int front = -1;
+int back = -1;
+int a[size];
 
-    q.push("Seeker ");
-    q.push("Programming ");
-    q.push("& ");
-    q.push("Coding ");
+void enqueue() {
+    if (back == size - 1) {
+        cout << "Queue is full!" << endl;
+    }
+    else {
+        int front = 0;
+        cout << "Enter element: ";
+        int x;
+        cin >> x;
 
-    cout << "Front -> " << q.front() << endl;
-    cout << "End -> " << q.back() << endl;
+        a[back++] = x;
+        cout << x << " is successfully inserted!" << endl;
+    }
+}
 
-    q.pop();
+void dequeue() {
+    if (front > back) {
+        cout << "Queue is empty!" << endl;
+    }
+    else {
+        cout << a[front] << " is deleted" << endl;
+        front++;
+    }
+}
 
-    cout << "First -> " << q.front() << endl;
+void display() {
+    for (int i = front; i < back; i++)
+    {
+        cout << a[i] << " ";
+    }
+    cout << endl;
+}
 
-    q.empty();
-
-    cout << "Is queue empty -> " << q.empty() << endl;
-
-    q.swap(q.front(), q.back()); // not understood :(
-
-    return 0;
+int main() {
+    system("clear");
+    while (1) {
+        cout << "----------------------------\n";
+        cout << "1. Insert\n2. Delete\n3. Display\n0. Exit\n";
+        cout << "----------------------------\n";
+        int choice;
+        cin >> choice;
+        switch (choice)
+        {
+        case 1:
+            enqueue();
+            system("clear");
+            break;
+        case 2:
+            dequeue();
+            system("clear");
+            break;
+        case 3:
+            system("clear");
+            display();
+            break;
+        case 0:
+            exit(0);
+            system("clear");
+            break;
+        default:
+            cout << "Invalid option chosen! " << endl;
+            break;
+        }
+    }
 }

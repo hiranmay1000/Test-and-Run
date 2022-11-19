@@ -13,7 +13,6 @@ int main()
 
     char ans[99];
     int j = 0;
-    string p;
 
     // 1st approach
 
@@ -23,7 +22,7 @@ int main()
         if (s.at(i) == s.at(n - 1))
         {
             ans[j] = s.at(i); // this approach is also valid
-            cout << s.at(i);  // but this one loop aprach (use s.at() function to print ans directly)
+            cout << s.at(i);  // but this is single loop approach (use s.at() function to print ans directly)
             j++;
             n--;
         }
@@ -39,7 +38,7 @@ int main()
     // 2nd approach
 
     cout << endl
-         << "Second method ->";
+        << "Second method ->";
     for (int i = 0; i < n / 2; i++)
     {
         if (s[i] == s[n - 1 - i])
