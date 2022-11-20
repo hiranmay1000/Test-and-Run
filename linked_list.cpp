@@ -17,90 +17,56 @@ public:
 
 
 
-
-
 void insertAtHead(Node*& head, int d) {
     Node* temp = new Node(d); // create new node
     temp->next = head;
     head = temp;
-
 }
 
 
 
-
-
-
-
-
-
-void insertAtTail(Node* tail, int d) {
-    Node* temp = new Node(d); // create new node
-    tail->next = temp;
-    tail = temp;
-}
-
-
-
-
-
-void deleteNode(Node*& head, Node*& tail, int pos){
-    int count = 1;
+void insertAtTail(Node* head, int d) {
+    Node* newNode = new Node(d); // create new node
 
     Node* temp = head;
-    while(count < pos - 1){
+    while (temp != NULL)
+    {
         temp = temp->next;
-        count++;
     }
 
-    Node *currNode = ;
-
-    temp->next = 
+    temp->next = newNode;
 }
 
 
 
 
-
-
-void insertAtPos(Node*& tail, Node*& head, int pos, int d) {
-
-    //insert at 1
-    if (pos == 1) {
-        insertAtHead(head, d);
-        return;
-    }
-
-
+void insertAtPos(int pos, Node*& head, int d) {
+    Node* newNode = new Node(d);
 
     Node* temp = head;
     int count = 1;
 
-    while (count < pos - 1) { // traverse linked->List
+    while (count < pos - 1)
+    {
         temp = temp->next;
         count++;
     }
 
-
-
-    // insert at tail
-    if (temp->next == NULL) {
-        insertAtTail(tail, d);
-        return;
-    }
-
-
-
-
-    // create node for d
-    Node* nodeToInsert = new Node(d);
-
-    //insert at middle (any)
-    nodeToInsert->next = temp->next;
-    temp->next = nodeToInsert;
+    newNode->next = temp->next;
+    temp->next = newNode;
 }
 
 
+
+void deleteNode(Node*& head, Node*& tail, int pos) {
+    int count = 1;
+
+    Node* temp = head;
+    while (count < pos - 1) {
+        temp = temp->next;
+        count++;
+    }
+}
 
 
 
@@ -109,36 +75,29 @@ void display(Node*& head) {
 
     while (temp != NULL)
     {
-        cout << temp->data << " ";
+        cout << temp->data << "->";
         temp = temp->next;
     }
-    cout << endl;
+    cout << "NULL" << endl;
 }
 
 
 
-
-
-
-
-
-
-
 int main() {
-    Node* node1 = new Node(10);
+    Node* node1 = new Node(1);
 
     Node* head = node1;
-    Node* tail = node1;
 
-    system("clear");
-    cout << "Before: ";
+    insertAtHead(head, 0);
+    insertAtPos(3, head, 2);
+    insertAtTail(head, 3);
+
+    cout << "Before operation: " << endl;
     display(head);
-
-    insertAtHead(head, 5);
-    insertAtTail(tail, 20);
-    insertAtPos(tail, head, 3, 15);
-    deleteNode(tail, head, 3);
-
-    cout << "After: ";
+    cout << "Head: " << head->data << endl;
+    cout << "Tail: " << head->data << endl;
+    cout << "After operation: " << endl;
     display(head);
+    cout << "Head: " << head->data << endl;
+    cout << "Tail: " << head->data << endl;
 }
