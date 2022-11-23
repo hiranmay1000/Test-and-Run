@@ -23,6 +23,7 @@ void insertAtHead(Node*& head, int d) {
     if (head == NULL) {
         Node* newNode = new Node(d);
         head = newNode;
+        return;
     }
     else {
         Node* newNode = new Node(d);
@@ -35,16 +36,19 @@ void insertAtHead(Node*& head, int d) {
 
 
 
-void insertAtTail(Node*& tail, int d) {
-    if (tail == NULL) {
-        Node* newNode = new Node(d);
-        tail = newNode;
+void insertAtTail(Node*& head, int d) {
+    Node* newNode = new Node(d);
+    if (head == NULL) {
+        head = newNode;
+        return;
     }
     else {
-        Node* newNode = new Node(d);
-
-        tail->next = newNode;
-        newNode->prev = tail;
+        Node* temp = head;
+        while (temp->next != NULL) {
+            temp = temp->next;
+        }
+        temp->next = newNode;
+        newNode->prev = temp;
     }
 }
 
@@ -56,25 +60,27 @@ void insertAtPos(int pos, Node*& head, int d) {
         insertAtHead(head, d);
         return;
     }
+    else {
 
-    Node* newNode = new Node(d);
+        Node* newNode = new Node(d);
 
-    Node* temp = head;
-    int cnt = 1;
-    while (cnt < pos - 1)
-    {
-        temp = temp->next;
-        cnt++;
+        Node* temp = head;
+        int cnt = 1;
+        while (cnt < pos - 1)
+        {
+            temp = temp->next;
+            cnt++;
+        }
+
+        if (temp->next = NULL) {
+            insertAtTail(head, d);
+            return;
+        }
+
+        newNode->next = temp->next;
+        temp->next = newNode;
+        newNode->prev = temp;
     }
-
-    if (temp->next = NULL) {
-        insertAtTail(head, d);
-        return;
-    }
-
-    newNode->next = temp->next;
-    newNode->prev = temp;
-    temp->next = newNode;
 }
 
 
@@ -82,11 +88,11 @@ void insertAtPos(int pos, Node*& head, int d) {
 void deleteNode(int pos, Node*& head) {
 
     if (pos == 1) {
-        Node *temp = head;
+        Node* temp = head;
         temp->next->prev = NULL;
         head = head->next;
         head->prev = NULL;
-        
+
         delete temp;
     }
     else {
@@ -109,34 +115,87 @@ void deleteNode(int pos, Node*& head) {
 }
 
 
-
-void display(Node*& head) {
+void show(Node*& head) {
     Node* temp = head;
 
-    while (temp != NULL) {
-        cout << temp->data << " <-> ";
-        temp = temp->next;
+    if (head == NULL) {
+        cout << "List Is Empty!" << endl;
     }
-    cout << "NULL" << endl;
+    else {
+        while (temp != NULL) {
+            cout << temp->data << " <-> ";
+            temp = temp->next;
+        }
+        cout << "NULL" << endl;
+    }
 }
 
 
+void displayLinkedPosition(Node*& head, Node*& tail) {
+    Node* temp = head;
+
+    while (tail->next != NULL)
+    {
+        tail = tail->next;
+    }
+
+    cout << "Head: " << temp->data << endl;
+    cout << "Tail: " << tail->data << endl;
+}
 
 int main() {
     Node* Node1 = new Node(1);
     Node* head = Node1;
     Node* tail = Node1;
 
-    insertAtHead(head, 0);
-    insertAtPos(3, head, 2);
-    insertAtTail(tail, 3);
+    while (1) {
+        cout << "1. Insert at head\n2. Insert at tail\n3. Insert at position\n4. Delete element\n5. Display\n0. Exit\n::";
+        int choice;
+        cin >> choice;
+        switch (choice) {
+        case 1:
+            int x;
+            cout << "Enter element: ";
+            cin >> x;
+            insertAtHead(head, x);
+            show(head);
+            break;
+        case 2:
+            int y;
+            cout << "Enter element: ";
+            cin >> y;
+            insertAtTail(head, y);
+            show(head);
+            break;
+        case 3:
+            int z;
+            cout << "Enter position: ";
+            cin >> z;
+            cout << "Enter data: ";
+            int p;
+            cin >> p;
+            insertAtPos(z, head, p);
+            show(head);
+            break;
+        case 4:
+            int q;
+            cout << "Enter position: ";
+            cin >> q;
+            deleteNode(q, head);
+            show(head);
+            break;
+        case 5:
+            show(head);
+            break;
+        case 0:
+            displayLinkedPosition(head, head);
+            exit(0);
+            break;
+        default:
+            cout << "Invalid choice!!!" << endl;
+            break;
+        }
+    }
 
-    cout << "Before operation: " << endl;
-    cout << "Head: " << head->data << endl;
-    cout << "Tail: " << tail->data << endl;
-    // deleteNode(3, head);
-    display(head);
-    cout << "After operation: " << endl;
-    cout << "Head: " << head->data << endl;
-    cout << "Tail: " << tail->data << endl;
+    return 0;
 }
