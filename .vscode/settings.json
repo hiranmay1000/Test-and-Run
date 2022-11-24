@@ -10,7 +10,8 @@
     "string_view": "cpp",
     "regex": "cpp",
     "valarray": "cpp",
-    "new": "cpp"
+    "new": "cpp",
+    "random": "cpp"
   },
   "terminal.integrated.allowChords": false
 }

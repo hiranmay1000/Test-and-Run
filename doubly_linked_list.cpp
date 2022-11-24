@@ -8,12 +8,22 @@ public:
     Node* next;
     Node* prev;
 
-    // constructor
+    // CONSTRUCTOR
     Node(int d) {
         this->data = d;
         this->next = NULL;
         this->prev = NULL;
     }
+
+    // // DESTRUCTOR
+    // ~Node() {
+    //     int val = this->data;
+    //     if (next != NULL) {
+    //         delete next;
+    //         next = NULL;
+    //     }
+    //     cout << val << " is deleted!" << endl;
+    // }
 };
 
 
@@ -78,8 +88,9 @@ void insertAtPos(int pos, Node*& head, int d) {
         }
 
         newNode->next = temp->next;
-        temp->next = newNode;
         newNode->prev = temp;
+        temp->next->prev = newNode;
+        temp->next = newNode;
     }
 }
 
@@ -111,6 +122,11 @@ void deleteNode(int pos, Node*& head) {
         currNode->next = NULL;
 
         delete currNode;
+
+    }
+
+    if (head == NULL) {
+        cout << "List is empty! Nothing to delete :( " << endl;
     }
 }
 

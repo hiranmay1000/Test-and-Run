@@ -14,14 +14,14 @@ public:
     }
 
     // destructor
-    // ~Node() {
-    //     int val = this->data;
-    //     if (this->next != NULL) {
-    //         delete next;
-    //         this->next = NULL;
-    //     }
-    //     cout << val << " is deleted!" << endl;
-    // }
+    ~Node() {
+        int val = this->data;
+        if (this->next != NULL) {
+            delete next;
+            this->next = NULL;
+        }
+        cout << val << " is deleted!" << endl;
+    }
 };
 
 void insertAtHead(Node*& head, int d) {
