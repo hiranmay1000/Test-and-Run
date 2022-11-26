@@ -2,13 +2,25 @@
 
 using namespace std;
 
-class Base{
-    public:
-        int a;
+class Base {
+    int a;
+public:
+    Base() {
+        cin >> this->a;
+    }
+    friend class Derived;
+};
 
-    friend void Base(Base)
-}
+class Derived {
+public:
+    void display(Base& t) {
+        cout << "Value: " << t.a << endl;
+    }
+};
 
-int main(){
-    
+int main() {
+    Base b;
+    Derived d;
+
+    d.display(b);
 }

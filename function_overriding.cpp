@@ -9,11 +9,11 @@ class RBI {
     int money;
     int _insurance;
 public:
+    int a, b, c;
+
     int sbi_percentage;
     int axis_percentage;
     int hdfc_percentage;
-
-    int a, b, c;
 
     void funding() {
         cout << "Amount allotment: ";
@@ -24,6 +24,8 @@ public:
         a = (100 / money) * sbi_percentage;
         b = (100 / money) * axis_percentage;
         c = (100 / money) * hdfc_percentage;
+
+        cout << a << " " << b << " " << c;
     };
 
     void insurance() {
@@ -33,26 +35,23 @@ public:
 };
 
 class SBI: public RBI {
-    public:
-        
+public:
+    void getData(){
+        funding();
+    }
 };
 
 class Axis: public RBI {};
 
 class HDFC: public RBI {};
 
-
-
 int main() {
     RBI mainBank;
     mainBank.funding();
     mainBank.insurance();
-    
+
     SBI _sbi;
     Axis _axis;
     HDFC _hdfc;
-
-    cout << _sbi.a << " " << _axis.b << " " << _hdfc.c;
-
     return 0;
 }

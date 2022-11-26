@@ -2,45 +2,50 @@
 
 using namespace std;
 
-class BaseClass {
+class Car {
 public:
-    virtual void print() {
-        cout << "Print!" << endl;
+    virtual void sound() {
+        cout << "Broom Broom" << endl;
     }
 
-    void show() {
-        cout << "Class Executed!" << endl;
+    void showPower() {
+        cout << "Torque in NM" << endl;
     }
 };
 
-class DerivedClass: public  BaseClass {
+class BMW: public Car {
 public:
-    void print() {
-        cout << "This is derived Class\nThe print() function is overwritten!\n";
+    void sound() {
+        cout << "Hurgg Hurgg" << endl;
     }
 
-    void show() {
-        cout << "This is derived c" << endl << "show() method is overwritten!" << endl;
+    void showPower() {
+        cout << "120 NM torque" << endl;
     }
 };
 
-class DerivedDerivedClass: public DerivedClass {
+class Mercedes: public Car {
 public:
-    void print() {
-        cout << "Printing derivedDerivedClass" << endl;
+    void sound() {
+        cout << "Hmmwe Hmmwe" << endl;
     }
-    void show() {
-        cout << "Showing derivedDerivedClass" << endl;
+
+    void showPower() {
+        cout << "120 NM torque" << endl;
     }
 };
 
 int main() {
-    BaseClass* classPtr;
-    DerivedDerivedClass dDObj;
-    classPtr = &dDObj;
+    Car allCar;
+    Car* car_ptr;
+    Mercedes cars;
+    car_ptr = &cars;
 
-    classPtr->print();
-    classPtr->show();
+    car_ptr->sound(); // pointing to the derived class
+    car_ptr->showPower();
+
+    allCar.sound(); // pointing to the base class
+    allCar.showPower();
 
     return 0;
 }
