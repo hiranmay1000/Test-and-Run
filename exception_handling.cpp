@@ -3,21 +3,24 @@
 using namespace std;
 
 int main() {
-    int x = 10;
-    cout << "1st" << endl;
-    try
-    {
-        if (x > 0)
-            throw x;
-        cout << "2nd" << endl;
-    }
-    catch (int a)
-    {
-        cout << "cought: " << a << endl;
-        cout << "3rd" << endl;
-    }
 
-    cout << "4th" << endl;
+    int a, b, c;
+
+    cout << "Enter nums;";
+    cin >> a >> b;
+
+    try {
+        if (b != 0) {
+            c = a / b;
+            cout << "Division: " << c << endl;
+        }
+        else {
+            throw(b);
+        }
+    }
+    catch (int b) {
+        cout << "Value of is: " << b << " undefined" << endl;
+    }
 
     return 0;
 }

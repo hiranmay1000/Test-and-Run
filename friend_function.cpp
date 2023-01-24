@@ -1,27 +1,23 @@
 #include <bits/stdc++.h>
-
 using namespace std;
 
-class Size {
-    int bredth;
-    int height;
+class Box {
+    int len;
+    int bred;
 public:
-    int length;
-
-    void set_data() {
-        cin >> this->length >> this->bredth >> this->height;
+    void getdata(int len, int bred) {
+        this->len = len;
+        this->bred = bred;
     }
-
-    friend void show(Size); // friend function
+    friend int print(Box);
 };
 
-void show(Size s) {
-    cout << "Size of the box is: " << s.length * s.bredth * s.height << endl;
+int print(Box b2) {
+    return b2.len * b2.bred;
 }
 
 int main()
 {
-    Size s1;
-    s1.set_data();
-    show(s1);
+    Box b1;
+    cout << print(b1) << endl;
 }

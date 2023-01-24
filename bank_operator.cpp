@@ -1,108 +1,85 @@
-#include <bits/stdc++.h>
+#include<iostream>
+#include<conio.h>
+#include<stdio.h>
+#include<string.h>
 
 using namespace std;
 
-class Bank {
-    int ac_no;
-    string name;
-    double balance;
-
+//class account declaration and definition
+class account
+{
 public:
-    void checkBal() {
-        cout << balance << endl;
+    char name[30];
+    int acc_num, acc_type;
+    int balance;
+    int amount;
+
+    //to initialize instance members
+    void getData()
+    {
+        cout << "\nEnter the following details\nCustomer Name :";
+        gets(name);
+        cout << "\nAccount number :";
+        cin >> acc_num;
+        cout << "\nAccount type\n1. Saving Account\n2.Current Account\n";
+        cin >> acc_type;
+        cout << "\nAccount balance:";
+        cin >> balance;
     }
 
-    void deposit() {
-        double x;
-        cout << "Enter deposit amount: ";
-        cin >> x;
-        balance += x;
-        cout << "Successful" << endl;
+    //to display balance
+    void display()
+    {
+        cout << "\nYour Account Balance :" << balance;
     }
 
-    void withdraw() {
-        cout << "Enter money to withdraw: ";
-        double x;
-        cin >> x;
-        if (balance >= x) {
-            balance -= x;
-            cout << "Successful" << endl;
-        }
-        else {
-            cout << "Insufficient fund" << endl;
-        }
+    //to withdraw money from account
+    void withdraw()
+    {
+        cout << "\nEnter the amount you want to withdraw :";
+        cin >> amount;
+        if (amount > balance)
+            cout << "\nInsuficient balance";
+        else
+            balance = balance - amount;
+        display();
     }
-
-    void runMachine();
 };
 
-
-class CurrentAc: public Bank {};
-class SavingsAc: public Bank {};
-
-void Bank::runMachine() {
-    cout << "1. Current\n2. Savings\n";
-    int x;
-    cin >> x;
-
-    while (1)
+//class current account
+class cur_acct:public account
+{
+public:
+    void panelty()
     {
-        if (x == 1) {
-            CurrentAc c;
-            cout << "1. Check Balance\n2. Deposit\n3. Withdraw\n";
-            int y = 1;
-            cin >> y;
-
-            switch (y)
-            {
-            case 1:
-                c.checkBal();
-                break;
-            case 2:
-                c.deposit();
-                break;
-            case 3:
-                c.withdraw();
-                break;
-            case 0:
-                exit;
-            default:
-                break;
-            }
+        if (balance < 200 && acc_type == 2)
+        {
+            balance = balance - 20;
+            display();
         }
-        else if (x == 2) {
-            SavingsAc s;
-            cout << "1. Check Balance\n2. Deposit\n3. Withdraw\n";
-            int y = 1;
-            cin >> y;
-
-            switch (y)
-            {
-            case 1:
-                s.checkBal();
-                break;
-            case 2:
-                s.deposit();
-                break;
-            case 3:
-                s.withdraw();
-                break;
-            case 0:
-                exit(0);
-            default:
-                break;
-            }
-        }
-        else
-            exit(0);
     }
+};
 
-}
+//class saving account
+class sav_acct:public account
+{
+public:
+    void interest()
+    {
+        int t;
+        cout << "\nEnter time interval in year:";
+        cin >> t;
+        balance = balance * (1 + 2 * t);
+        display();
+    }
+};
 
-int main() {
-
-    Bank b;
-    b.runMachine();
-
-    return 0;
+//main() to test account
+int main()
+{
+    account ac;
+    ac.getData();
+    ac.display();
+    ac.withdraw();
+    getch();
 }

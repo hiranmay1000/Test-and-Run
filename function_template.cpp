@@ -10,6 +10,6 @@ T d(T num1, T num2){
 
 int main()
 {
-    cout << d<int> (2, 12) << endl;
-    cout << d<double> (2.5, 2.15) << endl;
+    d<int> (2, 12);
+    d<double> (2.5, 2.15);
 }

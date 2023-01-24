@@ -1,57 +1,25 @@
-#include <bits/stdc++.h>
-
+#include<iostream>
 using namespace std;
 
-// A function is said to be overriding when a function calls in a program with having same name, same return type & same 
-// argument lists and it can also have the different data types in different function declaration.
+class MainBank {
+    int principal;
+    int insurance_amount;
 
-class RBI {
-    int money;
-    int _insurance;
+    int a = 0, b = 0, c = 0;
 public:
-    int a, b, c;
-
-    int sbi_percentage;
-    int axis_percentage;
-    int hdfc_percentage;
-
-    void funding() {
-        cout << "Amount allotment: ";
-        cin >> money;
-        cout << "Percentage:\nSbi: \nAxis: \nHDFC:\n";
-        cin >> sbi_percentage >> axis_percentage >> hdfc_percentage;
-
-        a = (100 / money) * sbi_percentage;
-        b = (100 / money) * axis_percentage;
-        c = (100 / money) * hdfc_percentage;
-
-        cout << a << " " << b << " " << c;
-    };
-
-    void insurance() {
-        cout << "Insurance amount: ";
-        cin >> this->_insurance;
-    };
-};
-
-class SBI: public RBI {
-public:
-    void getData(){
-        funding();
+    void moneyAllotment() {
+        a = (principal * 20) / 100;
+        b = (principal * 30) / 100;
+        c = (principal * 50) / 100;
     }
 };
 
-class Axis: public RBI {};
+class Sbi: public MainBank {};
 
-class HDFC: public RBI {};
+class Hdfc: public MainBank {};
 
-int main() {
-    RBI mainBank;
-    mainBank.funding();
-    mainBank.insurance();
-
-    SBI _sbi;
-    Axis _axis;
-    HDFC _hdfc;
+int main()
+{
+    
     return 0;
 }

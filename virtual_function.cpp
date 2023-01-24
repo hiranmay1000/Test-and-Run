@@ -5,33 +5,33 @@ using namespace std;
 class Car {
 public:
     virtual void sound() {
-        cout << "Broom Broom" << endl;
+        cout << "Car: Broom Broom" << endl;
     }
 
     void showPower() {
-        cout << "Torque in NM" << endl;
+        cout << "Car:  Torque in NM" << endl;
     }
 };
 
 class BMW: public Car {
 public:
     void sound() {
-        cout << "Hurgg Hurgg" << endl;
+        cout << "BMW: Hurgg Hurgg" << endl;
     }
 
     void showPower() {
-        cout << "120 NM torque" << endl;
+        cout << "BMW: 120 NM torque" << endl;
     }
 };
 
 class Mercedes: public Car {
 public:
     void sound() {
-        cout << "Hmmwe Hmmwe" << endl;
+        cout << "Mercedes: Hmmwe Hmmwe" << endl;
     }
 
     void showPower() {
-        cout << "120 NM torque" << endl;
+        cout << "Mercedes: 120 NM torque" << endl;
     }
 };
 

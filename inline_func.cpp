@@ -2,9 +2,12 @@
 
 using namespace std;
 
+inline void multiply(int a, int b){
+    cout << "Product: " << a*b << endl;
+}
+
 int main()
 {
-    unsigned int a = 10;
-    cout << a << endl;
-    return 0;
+    multiply(2,6); // it replicates the function body. hence save memory and time
+    multiply(3,5); // it copies the method of function definition and execute during function call  
 }

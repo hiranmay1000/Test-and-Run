@@ -8,7 +8,7 @@ int back = -1;
 int a[size];
 
 void enqueue() {
-    if (back == size - 1) {
+    if (back == size) {
         cout << "Queue is full!" << endl;
     }
     else {
