@@ -1,19 +1,27 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main() {
-    vector<int>arr = { 5,5,5,0,1,2,5 };
-    vector<int>ans(7);
-    int n = arr.size();
-    int start = 5;
+int findPivot(vector<int>& arr) {
+    int start = 0;
+    int end = arr.size() - 1;
 
-    int k = 0;
-    for (int i = start; i < n + start; i++)
+    while (start < end)
     {
-        ans[k++] = (arr[i % n]);
+        int mid = start + (end - start) / 2;
+        if (arr[mid] >= arr[start])
+            start = mid + 1;
+        else if (arr[mid] <= arr[start])
+            end = mid;
     }
+    return start;
+}
 
-    for (auto i : ans)
-        cout << i << " ";
+int main() {
+    vector<int>arr = { 5,7,21,76,989,1,2,4 };
+
+    cout << findPivot(arr);
+
+    // for (auto i : a)
+    //     cout << i << " ";
 
 }

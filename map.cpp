@@ -32,9 +32,13 @@ int main()
         cout << (*i).second << " ";
     }
     cout << endl;
+    auto ite = it;
+    cout << "Awesome: " << (*ite).second.size()  << endl;
+
 
     auto itr = s.find(3);                            // again made a iterator
     auto i = itr;                                    // we cannot directly print so we assign 'itr' into 'i'
     cout << "Another one -> " << (*i).second << " "; // finding specific position
 
     return 0;
+}

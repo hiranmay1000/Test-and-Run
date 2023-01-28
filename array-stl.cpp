@@ -26,7 +26,8 @@ int main()
     // int arr[1000000];
     // max array size (10^7);
     // bool arr[10000000];
-    vector<int> v = {1, 4, 5, 6, 2, 3};
+    vector<int> v = {1, 4, 5, 6, 2, 3}; 
+    
     sort(v.begin(), v.end());
 
     printFunction(v, v.size());

@@ -41,4 +41,24 @@ int main() {
     cout << count;
 
     cout << endl;
+
+    cout << "New Part: " << endl;
+
+    unordered_set<string>  hashset;
+    hashset.insert("bubble");
+    hashset.insert("rubble");
+    hashset.insert("white");
+    hashset.insert("red");
+    hashset.insert("court");
+    hashset.insert("polisi");
+
+    string s = "pared"; 
+
+    cout << s.substr(2,5) << endl;
+
+    for(auto word:hashset){
+        if(hashset.count(s.substr(2, 5))){
+            cout<< word << endl;
+        }
+    }
 }

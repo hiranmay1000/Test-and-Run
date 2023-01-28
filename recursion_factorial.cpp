@@ -3,7 +3,6 @@ using namespace std;
 
 int fact(int n) {
     if (n == 0) {
-        cout << "---------------------------THE END-----------------------------";
         return 1;
     }
 
@@ -24,7 +23,10 @@ int fact(int n) {
 
 int main()
 {
+    cout << "Factorial of: ";
     int n;
     cin >> n;
-    cout << "\nFactorial of [" << n << "] is: " << fact(n) << endl;
+    cout << "\nFactorial of [" << n << "] is-> " << fact(n) << endl;
+    cout << "---------------------------THE END-----------------------------";
+
 }
