@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 
 int fact(int n) {
@@ -23,7 +23,7 @@ int fact(int n) {
 
 int main()
 {
-    cout << "Factorial of: ";
+    cout << "Factorial of\n> ";
     int n;
     cin >> n;
     cout << "\nFactorial of [" << n << "] is-> " << fact(n) << endl;

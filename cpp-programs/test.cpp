@@ -9,50 +9,15 @@ void showRuntime();
 
 
 
-// 5 ,2 ,1 ,3 ,4
-// 3 way partition approach
-void quickSort(vector<int>& arr, int start, int end) {
-	// base case
-	if (start >= end) return;
-
-	int pivot = arr[end];
-	int i = start, j = end;
-	while (i <= j)
-	{
-		while (arr[i] < pivot) i++;
-		while (arr[j] > pivot) j--;
-
-		if (i <= j)
-			swap(arr[i++], arr[j--]);
-	}
-
-	// call recursively
-	quickSort(arr, start, j);
-	quickSort(arr, i, end);
-}
-
-
 
 int main() {
 
+	string s = "abc";
 
-	vector<int> v = { 4,2,5,1,3 }; // 1 2 3 || 4 5
-	vector<int> u = { 4,1 }; // 1 2 3 || 4 5
-	vector<vector<int>> w = {
-		{2,3},
-		{5,2},
-		{4,1},
-	};
+	s.erase(0, 1);
+	s.substr((s.size() - 1) - , 2);
 
-	if (w.back() != u)
-	{
-		cout << "Similar\n";
-	}
-
-
-	for (auto i : w.back())
-		cout << i << " ";
-
+	cout << s << endl;
 
 
 

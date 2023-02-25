@@ -1,1 +1,1 @@
-threeSum
+cout << it << ' ';

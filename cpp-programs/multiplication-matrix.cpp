@@ -15,25 +15,28 @@ int main()
         {3, 4},
     };
 
-    int c[2][2];
+    vector<vector<int>> ans;
 
-    for (int i = 0; i < a.size(); i++)
+    for (int i = 0; i < 2; i++)
     {
-        for (int j = 0; j < b.size(); j++)
+        for (int j = 0; j < 2; j++)
         {
-            c[i][j] = a[i][j] * b[i][j] + a[i][j + 1] * b[i + 1][j];
+            int sum = 0;
+            for (int k = 0; k < 2; k++)
+            {
+                sum += a[j][k] * b[k][j];
+            }
+            ans[i].push_back(sum);
         }
-        cout << endl; // not printing the correct values
+
     }
 
-    for (int i = 0; i < a.size(); i++)
-    {
-        for (int j = 0; j < b.size(); j++)
-        {
-            cout << c[i][j] << " ";
-        }
-        cout << endl; // not printing the correct values
+    for (auto it : ans) {
+        for (auto jt : it) {
+            cout << jt << ' ';
+        }cout << endl;
     }
+
 
     return 0;
 }
