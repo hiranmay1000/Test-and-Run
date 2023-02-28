@@ -5,7 +5,8 @@
   "files.associations": {
     "*.embeddedhtml": "html",
     "*.html": "html",
-    "unordered_map": "cpp"
+    "unordered_map": "cpp",
+    "iostream": "cpp"
   },
   "jupyter.kernels.filter": [],
   "git.ignoreLimitWarning": true
