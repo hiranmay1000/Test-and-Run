@@ -6,7 +6,11 @@
     "*.embeddedhtml": "html",
     "*.html": "html",
     "unordered_map": "cpp",
-    "iostream": "cpp"
+    "iostream": "cpp",
+    "vector": "cpp",
+    "ostream": "cpp",
+    "array": "cpp",
+    "regex": "cpp"
   },
   "jupyter.kernels.filter": [],
   "git.ignoreLimitWarning": true

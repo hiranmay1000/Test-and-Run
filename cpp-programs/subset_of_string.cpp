@@ -22,7 +22,6 @@ vector<string> subset(string& s) {
 
     backtrack(s, res, sub, 0);
 
-    cout << "Set: ";
     vector<string>  ans;
     for (auto it : res) {
         ans.push_back(it);
@@ -34,10 +33,12 @@ vector<string> subset(string& s) {
 
 int main()
 {
-    string s = "eidbaooo";
+    string s = "leet";
+    
 
     vector<string> ans = subset(s);
 
+    cout << "Set: \n";
     for (auto it : ans) {
         for (auto jt : it) {
             cout << jt << ' ';
